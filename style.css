@@ -1,0 +1,743 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Body Styling */
+body {
+    /* background: linear-gradient(to bottom, black 25%, beige 25%); */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+   
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+/* Dark Mode Body */
+
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Space between logo and button */
+    align-items: center;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+/* Logo Styling */
+.logodiv {
+    display: flex;
+    justify-content: center; /* Horizontally center the logo */
+    align-items: center; /* Vertically center the logo */
+    width: 100%;
+    margin-bottom: 20px; /* Add space below the logo */
+}
+
+.logo {
+    width: 200px;
+    max-width: 100%; /* Ensure it scales properly on small screens */
+    margin-left: 5%;
+}
+
+/* Dark Mode Button Styling */
+
+
+/* Dark Mode Toggle Button in Dark Mode */
+
+
+/* Main Content Styling */
+.main {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff; /* Light background for main content */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease;
+}
+
+.main:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Subtle shadow effect on hover */
+}
+
+
+
+/* Title Styling */
+h1 {
+    text-align: center;
+    font-size: 32px;
+    color: #0288d1; /* Accent color */
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 5px rgba(2, 136, 209, 0.2); /* Prominent text shadow */
+}
+
+/* Calculator Form Styling */
+.calculator {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+.calculator label {
+    font-weight: bold;
+    display: block;
+    position: relative;
+    margin-bottom: 5px;
+    color: #37474f; /* Darker gray for labels */
+    font-size: 14px;
+}
+
+.calculator input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #b0bec5; /* Lighter border */
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    background-color: #eceff1; /* Light gray input background */
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.calculator input[type="text"]:focus {
+    border-color: #0288d1; /* Accent color on focus */
+    box-shadow: 0 0 8px rgba(2, 136, 209, 0.5);
+    background-color: #ffffff; /* White background on focus */
+}
+
+.calculator input::placeholder {
+    color: #607d8b;
+    font-size: 14px;
+}
+
+/* Calculator Label and Input Flexbox */
+.calculator label, .calculator input {
+    flex: 1 1 48%;
+}
+
+@media (max-width: 768px) {
+    .calculator label, .calculator input {
+        flex: 1 1 100%; /* Responsive on smaller screens */
+    }
+}
+
+/* Input Hover Effect */
+.calculator input:hover {
+    border-color: #03a9f4; /* Hover color for input */
+    background-color: #f1f3f5;
+}
+
+/* Results Section Styling */
+.result {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px; /* Space above results */
+    
+    background-color: #ffffff; /* White background for results */
+    border-radius: 12px;
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Interactive transition */
+    margin-bottom: 10px;
+}
+
+
+
+/* Individual Result Item Styling */
+.result-item {
+    display: flex;
+    justify-content: space-between; /* Space between label and value */
+    width: 100%;
+    padding: 10px 0;
+   /* Bottom border for separation */
+}
+.result1 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px; /* Space above results */
+    padding: 20px; /* Padding inside result box */
+    background-color: #ffffff; /* White background for results */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.5); /* Green shadow effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Interactive transition */
+    margin-bottom: 10px;
+}
+
+.result1:hover {
+    transform: translateY(-2px); /* Lift result box on hover */
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.7); /* Enhanced shadow on hover */
+}
+.result-item:last-child {
+    border-bottom: none; /* Remove last item border */
+}
+
+.result-label {
+    width: 50%; /* Label takes 50% */
+    text-align: left;
+}
+
+.result-value {
+    width: 50%; /* Value takes other 50% */
+    text-align: right;
+}
+
+.result .result-item p {
+    font-size: 16px;
+    color: #37474f; /* Dark text */
+    margin-bottom: 10px;
+}
+
+.result .result-item span {
+    font-weight: bold;
+    color: #4caf50; /* Green accent color for values */
+}
+
+
+
+/* Feedback Section */
+#feedback-section {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#feedback-btn {
+    background-color: #0288d1;
+    color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#feedback-btn:hover {
+    background-color: #0277bd; /* Darker button on hover */
+}
+
+/* Feedback Modal */
+#feedback-modal, #advisor-prompt, #contact-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+
+#feedback-popup {
+    background-color: #1c1c1c;
+    padding: 30px;
+    border-radius: 12px;
+    width: 500px;
+    text-align: center;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    color: #ffffff; /* White text */
+}
+
+
+
+#feedback-popup h2, #feedback-popup p {
+    color: #ffffff; /* White text in dark mode */
+}
+
+/* Close Button for Feedback */
+#close-feedback {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #ffffff; /* White color for close button */
+    transition: color 0.3s ease;
+}
+
+#close-feedback:hover {
+    color: #ff0000; /* Red color on hover */
+}
+
+/* Emoji Container */
+#emoji-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 8px;
+}
+
+.emoji {
+    font-size: 32px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.emoji:hover {
+    transform: scale(1.2);
+}
+span {
+    margin: 0;
+    padding: 0;
+    display: inline; /* Ensure spans are inline */
+    font-size: inherit; /* Inherit font size */
+}
+.info-icon {
+    font-style: normal; /* Prevent italic style */
+    background-color: #b0b0b0; /* Gray background for the circle */
+    color: #fff; /* White color for the "i" text */
+    font-weight: bold; /* Bold text */
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    line-height: 18px; /* Align text vertically */
+    text-align: center; /* Align text horizontally */
+    border-radius: 50%; /* Make the icon circular */
+    margin-right: 8px; /* Space between icon and label */
+    cursor: pointer;
+    font-size: 14px; /* Set font size for the icon */
+    
+    position: relative; /* Set position relative for tooltip */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for info icon */
+.info-icon:hover {
+    background-color: #808080; /* Darker gray on hover */
+    transform: translateX(-2px); /* Move icon to the left on hover */
+}
+/* Light Mode Styles */
+
+/* Modal Background */
+#contact-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position */
+    z-index: 1000; /* On top of other elements */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+/* Popup Content */
+#contact-popup {
+    background-color: #ffffff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    width: 90%; /* Responsive width */
+    max-width: 400px; /* Maximum width */
+    position: relative;
+    padding: 20px; /* Padding inside */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+/* Form styling */
+.form-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-header h2 {
+    font-size: 24px;
+    margin: 0;
+    color: #333;
+}
+
+.form-header p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Form label and input styling */
+#contact-modal {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+}
+
+/* Popup Styling */
+#contact-popup {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Form Header */
+.form-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.form-header p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Form Labels */
+#contactForm label {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+    display: block;
+}
+
+/* Input Fields */
+#contactForm input,
+#contactForm textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+/* Input Focus Effect */
+#contactForm input:focus,
+#contactForm textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Textarea resize limitation */
+#contactForm textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Submit Button */
+#submit-contact {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#submit-contact:hover {
+    background: linear-gradient(90deg, #45a049, #4CAF50);
+    transform: translateY(-2px);
+}
+
+/* Disclaimer text styling */
+.disclaimer {
+    font-size: 12px;
+    color: #888;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Close Button */
+#close-contact {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#close-contact:hover {
+    color: #000;
+}
+
+/* Contact Button */
+#contact-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 20px;
+}
+
+#contact-btn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+/* Dark Mode Styles */
+
+.output-box {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 5px;
+    width: 50%;
+    border: 1px solid #ccc;
+    text-align: right;
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+}
+.lastresult{
+    width: 100%;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+.outcome{
+    font-weight: bold;
+}
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-header h2 {
+    margin-bottom: 5px;
+    color: #5C4B3E;
+}
+
+.form-header p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #6c6c6c;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 100px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5C4B3E;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3d3328;
+}
+
+.disclaimer {
+    font-size: 12px;
+    color: #888;
+    margin-top: 20px;
+    text-align: center;
+}
+/* Form container styling */
+.form-container {
+    display: none; /* Hidden initially */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 500px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+/* Close button styling */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+#contact-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #0073e6;
+    color: white;
+    border-radius: 5px;
+}
+
+#contact-btn:hover {
+    background-color: #005bb5;
+}
+
+/* Overlay styling */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+.heading{
+    background-color: pink;
+    padding: 10px;
+    border-radius: 20px;
+}
+/* Footer container styling */
+.footer {
+    background-color: #1c1c1c;
+    color: #ffffff;
+    padding: 20px 10px;
+    font-family: Arial, sans-serif;
+    margin-top: 40px;
+}
+.sub{
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+/* Footer content */
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Footer title styling */
+.footer-content h2 {
+    font-size: 1.8em;
+    color: #ffcd3c;
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #ffcd3c;
+    padding-bottom: 10px;
+}
+
+/* Sections with title and text layout */
+.footer-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Headings on the left side */
+.footer-section h3 {
+    color: #ffcd3c;
+    font-size: 1.1em;
+    font-weight: bold;
+    width: 220px;
+    text-align: left;
+    margin: 0;
+    padding-right: 15px;
+}
+
+/* Information text on the right side */
+.footer-section p {
+    color: #eaeaea;
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin: 0;
+    width: calc(100% - 235px);
+}
+
+/* Result and outcome sections for consistency */
+.footer-content h3 {
+    color: #ffcd3c;
+    font-size: 1.1em;
+    margin-top: 25px;
+}
+
+/* Last paragraphs styling */
+.footer-content p {
+    color: #eaeaea;
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin-left: 50px;
+}
+
+/* Small screen adjustments */
+@media (max-width: 768px) {
+    .footer-section {
+        flex-direction: column;
+    }
+    .footer-section h3, .footer-section p, .footer-content p {
+        width: 100%;
+        margin-left: 0;
+        text-align: left;
+    }
+}
+.main-footer{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    justify-content: center;
+    align-items: center;
+}

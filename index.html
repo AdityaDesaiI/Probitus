@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Rent & Loan Calculator</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to external CSS file -->
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logodiv">
+            <img src="logo.png" class="logo" alt="Logo">
+        </div>
+
+    </div>
+    <div class="main">
+
+        <div class="calculator">
+
+            <label for="PropertyValue">
+                <span class="info-icon" title="Total value of the property">i</span> Property Value
+            </label>
+            <input oninput="formatNumber(this)" type="text" id="PropertyValue" placeholder="Enter Property Value">
+
+            <label for="DownPayment">
+                <span class="info-icon" title="Percentage of the property price to be paid upfront">i</span> Down
+                Payment %
+            </label>
+            <input oninput="formatNumber(this)" type="text" id="DownPayment" placeholder="Enter Down Payment">
+
+            <label for="EMIRate">
+                <span class="info-icon" title="Monthly interest rate for the loan">i</span> EMI Rate %
+            </label>
+            <input type="text" id="EMIRate" oninput="this.value = this.value.replace(/[^0-9.]/g, '')"
+                placeholder="Enter EMI Rate" />
+
+
+            <label for="Tenure">
+                <span class="info-icon" title="Duration of the loan in years">i</span> Tenure (In Years)
+            </label>
+            <input oninput="formatNumber(this)" type="text" id="Tenure" placeholder="Enter Tenure">
+
+            <label for="rateOfAppreciation">
+                <span class="info-icon" title="Annual percentage increase in property value">i</span> Rate Of
+                Appreciation %
+            </label>
+            <input oninput="formatNumber(this)" type="text" id="rateOfAppreciation"
+                placeholder="Enter Rate Of Appreciation">
+
+            <div class="result">
+                <div class="result-item">
+                    <label> <span class="info-icon" style="color: #fff"
+                            title="Percentage of the property price to be paid upfront">i</span>EMI: ₹</label>
+                    <div class="output-box" id="emi">0</div>
+                </div>
+
+                <div class="result-item">
+                    <label> <span class="info-icon" style="color: #fff"
+                            title="Percentage of the property price to be paid upfront">i</span>Loan Payment: ₹</label>
+                    <div class="output-box" id="loanAmount">0</div>
+                </div>
+
+                <div class="result-item">
+                    <label> <span class="info-icon" style="color: #fff"
+                            title="Percentage of the property price to be paid upfront">i</span>Down Payment: ₹</label>
+                    <div class="output-box" id="downPaymentValue">0</div>
+                </div>
+            </div>
+
+            <div class="calculator">
+                <label for="rent">
+                    <span class="info-icon" title="Monthly rent you will be paying">i</span> Monthly Rent
+                </label>
+                <input oninput="formatNumber(this)" type="text" id="rent" placeholder="Enter monthly rent">
+
+                <label for="expectedReturn">
+                    <span class="info-icon" title="Annual percentage return you expect from savings">i</span> Expected
+                    Return on Savings %
+                </label>
+                <input oninput="formatNumber(this)" type="text" id="expectedReturn" placeholder="Enter Expected Return">
+
+                <div class="result">
+                    <!-- <div class="result-item">
+                        <p>Savings: ₹</p>
+                        <p id="savings">0</p>
+                    </div> -->
+                    <div class="result-item">
+                        <label> <span class="info-icon" style="color: #fff"
+                                title="Percentage of the property price to be paid upfront">i</span>Savings: ₹</label>
+                        <div class="output-box" id="savings">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result1">
+                <h1 class="lastresult">Result</h1>
+                <div class="result-item">
+                    <p>Future Value of savings if you chose rent: ₹</p>
+                    <p id="FutureValue">0</p>
+                </div>
+                <div class="result-item">
+                    <p>Future Value of property: ₹</p>
+                    <p id="FutureValueOfProperty">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="result1">
+            <div class="result-item">
+
+                <p class="outcome">Outcome</p>
+                <p id="finalResult">0</p>
+            </div>
+            <!-- Feedback Section -->
+    <div id="feedback-section">
+        <button id="feedback-btn">Feedback</button>
+    </div>
+
+    <!-- Feedback Popup Modal -->
+    <div id="feedback-modal" style="display: none;">
+        <div id="feedback-popup">
+            <span id="close-feedback">&times;</span>
+            <h2>Rate Your Experience</h2>
+            <div id="emoji-container">
+                <span class="emoji">😡</span>
+                <span class="emoji">😕</span>
+                <span class="emoji">😐</span>
+                <span class="emoji">😊</span>
+                <span class="emoji">😁</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Advisor Prompt Modal -->
+    <div id="advisor-prompt" style="display: none;">
+        <div id="advisor-popup">
+            <h2>Do you want a financial advisor?</h2>
+            <button id="advisor-yes">Yes</button>
+            <button id="advisor-no">No</button>
+        </div>
+    </div>
+
+    <!-- Contact Form Modal -->
+    <div id="contact-modal" style="display: none;">
+        <div id="contact-popup">
+            <span id="close-contact">&times;</span>
+            <div class="form">
+                <div class="form-header">
+                    <h2 class="heading">Probitus Wealth</h2>
+                    <p>Hello! Let us know how we can help, and we'll respond shortly.</p>
+                </div>
+                <form id="contactForm" action="https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec" method="post" name="contact-form">
+                    <label for="name">Name*</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">How can we help?*</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <button type="submit" id="submit-contact">Send</button>
+                </form>
+                <p class="disclaimer">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Us Button -->
+    <button id="contact-btn">Contact Us</button>
+
+    <!-- Link to External JavaScript File -->
+    <script src="script.js"></script>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h2>How to use this Calculator?</h2>
+            <h3 class="sub">Deciding between renting or buying a home can be tough. Our calculator can help you weigh
+                your options
+                and make an informed decision.</h3>
+
+            <div class="main-footer">
+                <div class="footer-section">
+                    <h3>1. Monthly Rent:</h3>
+                    <p>This is the amount you would pay each month to rent a similar property. Consider factors like
+                        location, property size, and amenities when estimating the rent.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>2. Property Value:</h3>
+                    <p>This is the current market value of the property you are considering buying. You can check
+                        property
+                        listings online, consult with real estate agents, or use property valuation tools to estimate
+                        the
+                        value.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>3. Down Payment (%):</h3>
+                    <p>The down payment is the initial amount you pay upfront when purchasing a property. A higher down
+                        payment can lead to lower monthly EMIs and better loan terms. Typical down payments range from
+                        10%
+                        to 20% of the property value, but this can vary based on lender policies and individual
+                        circumstances.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>4. EMI Rate (%):</h3>
+                    <p>The EMI rate is the interest rate charged by the lender on your home loan. This rate can
+                        fluctuate
+                        based on market conditions and your creditworthiness. You can get an estimate from banks or use
+                        online calculators to determine a potential EMI rate.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>5. Tenure (Years):</h3>
+                    <p>The tenure is the duration of your home loan and also the number of years you plan to stay in the
+                        home. A longer tenure results in lower monthly EMIs but higher total interest paid over the loan
+                        term. A shorter tenure leads to higher EMIs but lower overall interest costs.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>6. Rate of Appreciation (Property):</h3>
+                    <p>This is the estimated annual increase in the property's value over time. Historical data and
+                        market
+                        trends can be used to estimate this rate, but it's important to note that property values can
+                        fluctuate.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>7. Expected Rate on Savings:</h3>
+                    <p>This is the estimated return you expect to earn on your savings if you choose to rent instead of
+                        buy.
+                        Consider factors like investment options, risk tolerance, and market conditions when estimating
+                        this
+                        rate.</p>
+                </div>
+
+                <h3>Result:</h3>
+                <p>Calculates Future Value of Savings: If you choose to rent, it calculates how much your savings would
+                    grow
+                    over time.<br>
+                    Calculates Future Value of Property: If you choose to buy, it estimates how much your property value
+                    will increase.</p>
+
+                <h3>Outcome:</h3>
+                <p>The calculator provides a recommendation based on the comparison. If the future value of your savings
+                    is
+                    significantly higher than the total cost of buying, it suggests renting, which might be more
+                    cost-effective. Otherwise, it suggests buying.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        function formatNumber(input) {
+            let value = input.value.replace(/,/g, '');
+
+            // Check if the input is a valid number
+            if (!isNaN(value) && value !== '') {
+                // Format the number with commas
+                input.value = Number(value).toLocaleString('en-US');
+            } else {
+                input.value = '';
+            }
+        }
+    </script>
+    <script src="script.js"></script> <!-- Link to external JavaScript file -->
+
+</body>
+
+</html>
